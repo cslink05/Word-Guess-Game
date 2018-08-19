@@ -1,54 +1,54 @@
-var foodWords = ["LASAGNA",
-    "PIZZA",
-    "SPAGHETTI",
-    "CANNOLI",
-    "MEATBALL",
-    "ALFREDO",
-    "GELATO"
+var foodWords = ["lasagna",
+    "pizza",
+    "spaghetti",
+    "cannoli",
+    "meatball",
+    "alfredo",
+    "gelato"
 ];
 
 
 var wins = 0;
-var remainingGuesses = 8;
-var testName = "";
+var remainingGuesses = 12;
+var foodWord = "";
+var guessedLetters = [];
 
 
 function randomFoodChoice() {
-    testName = foodWords[Math.floor(Math.random() * foodWords.length)];
+    foodWord = foodWords[Math.floor(Math.random() * foodWords.length)];
 }
 
 randomFoodChoice();
 
-var currentWord = document.getElementById("italianFoodWords");
-
-var wordLength = testName.length;
-var underscores = "";
-function underScoreHtml() {
-    for(i=0; i<wordLength; i++) {
-        underscores = underscores + "_ "
-    }
-    document.getElementById("italianFoodWords").innerHTML = underscores;
+var answerArray = [];
+for (let i = 0; i < foodWord.length; i++) {
+    answerArray[i] = "_";
 }
 
-// Display "Press any key to get started"
-document.onkeypress = function (event) {
+var italianFoodWords = document.getElementById("italianFoodWords");
 
-    var userGuess = event.key;
+document.getElementById("italianFoodWords").innerHTML += answerArray.join(" ");
+
+document.onkeyup = function (event) {
+
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+
+        var userGuess = event.key;
+
+        for (var j = 0; j < foodWord.length; j++) {
+            if (foodWord[j] === userGuess) {
+                answerArray[j] = userGuess;
+                var element = document.getElementById("italianFoodWords");
+                element.innerHTML = answerArray.join(" ");
+            }
+        }
+    }
 
 
-
-
-    console.log(userGuess);
-    randomFoodChoice();
-    console.log(testName);
-
-    document.getElementById("italianFoodWords").innerHTML = "";
-    
-    underScoreHtml();
 };
 
-console.log(testName);
-// Track number of times player guessed correctly
+console.log(foodWord);
 
+// var game {
 
-//
+// }
