@@ -16,23 +16,55 @@
 
 <body>
 
-    <div class="container d-flex h-100">
+    <!-- <div class="container d-flex h-100">
         <div class="row align-self-center justify-content-center w-100">
             <div class="card border-primary mb-3 align-self-center" style="max-width: 18rem;">
                 <div class="card-header">Word Guess - Italian Food Edition!</div>
                 <div class="card-body text-primary">
-                    <!-- <h5 class="card-title">Primary card title</h5> -->
+                    <h5 class="card-title">Primary card title</h5>
                     <p class="card-text">Press any key to get started!</p>
                     <p class="card-text">
                         <span id="italianFoodWords"></span>
                     </p>
+                    <p class="card-text">Remaining guesses: <span id="remainingGuesses"></span></p>
                     <p class="card-text">Guessed letters: <span id="guessed"></span></p>
                     <p class="card-text">Wins: <span id="wins"></span></p>
                 </div>
             </div>
+            <div class="card border-primary mb-3 align-self-center" style="max-width: 18rem;">
+                <div class="card-header"> <span id="gameOver"></span></div>
+                <div class="card-body text-primary">
+                    <h5 class="card-title">Primary card title</h5>
+                    <p class="card-text"> <span id="playAgain"></span></p>
+                    
+                </div>
+            </div>
+        </div>
+    </div> -->
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <h1 class="display-3">Word Guess Game</h1>
+            <p class="lead">Italian Food Edition!</p>
         </div>
     </div>
- 
+
+    <div class="container d-flex">
+        <div class="row align-self-center justify-content-center w-100">
+            <div class="col-md-6 text-center" id="gameOver">
+            </div>
+            <div class="col-md-6">
+                    <p>Press any key to get started!</p>
+                    <p>
+                        <span id="italianFoodWords"></span>
+                    </p>
+                    <p>Remaining guesses: <span id="remainingGuesses"></span></p>
+                    <p>Guessed letters: <span id="guessed"></span></p>
+                    <p>Wins: <span id="wins"></span></p>
+            </div>
+        </div>
+    </div>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
