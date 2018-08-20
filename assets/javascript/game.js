@@ -64,7 +64,7 @@ var gameObject = {
     // reset the game
     resetGame: function () {
 
-        document.getElementById("gameOver").innerHTML = "";
+        document.getElementById("gameOver").innerHTML = "<img class='img-fluid' src='assets/images/ali-morshedlou-593422-unsplash.jpg' alt='Italian Restaurant'></div>";
 
         var index = -1;
 
