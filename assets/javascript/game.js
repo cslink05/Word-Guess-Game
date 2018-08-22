@@ -185,7 +185,7 @@ document.onkeyup = function (event) {
         gameObject.gameOver = false;
     } else {
         if (letterCheck(event.keyCode)) {
-            gameObject.makeGuess(event.key);
+            gameObject.makeGuess(event.key.toLowerCase());
         } else {
             alert("Please press letter key A-Z to guess a letter.")
         }
