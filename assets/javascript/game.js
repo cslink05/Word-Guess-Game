@@ -60,13 +60,14 @@ var gameObject = {
     remainingGuesses: totalGuesses,
     gameOver: true,
     lastWordIndex: -1,
+    italiaAudio: new Audio('./assets/audio/italia.mp3'),
 
     // reset the game
     resetGame: function () {
 
         // document.getElementById("gameOver").innerHTML = "<img class='img-fluid' src='assets/images/ali-morshedlou-593422-unsplash.jpg' alt='Italian Restaurant'></div>";
-        var italiaAudio = new Audio('./assets/audio/italia.mp3');
-        italiaAudio.play();
+        // var italiaAudio = new Audio('./assets/audio/italia.mp3');
+        this.italiaAudio.play();
 
         var index = -1;
 
