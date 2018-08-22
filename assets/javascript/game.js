@@ -64,13 +64,13 @@ var gameObject = {
     // reset the game
     resetGame: function () {
 
-        document.getElementById("gameOver").innerHTML = "<img class='img-fluid' src='assets/images/ali-morshedlou-593422-unsplash.jpg' alt='Italian Restaurant'></div>";
+        // document.getElementById("gameOver").innerHTML = "<img class='img-fluid' src='assets/images/ali-morshedlou-593422-unsplash.jpg' alt='Italian Restaurant'></div>";
 
         var index = -1;
 
         do {
             index = Math.floor(Math.random() * this.foodWordsList.length);
-        } while( index === this.lastWordIndex);
+        } while (index === this.lastWordIndex);
 
 
         this.currentWord = this.foodWordsList[index];
@@ -135,7 +135,9 @@ var gameObject = {
             this.wins++
             this.gameOver = true;
             // alert("You won! The word was: " + this.currentWord.toUpperCase());
-            document.getElementById("gameOver").innerHTML = "<h1>YOU WIN!</h1><br><p>Press any key to play again!</p>";
+            document.getElementById("gameOver").innerHTML = /*"<h1>YOU WIN!</h1><br><p>Press any key to play again!</p>"*/
+                '<img class="img-fluid border border-danger" src="assets/images/' + this.currentWord + '.jpg" alt="' + this.currentWord + '">' +
+                '<h1>YOU WIN!</h1><p>The correct word was ' + this.currentWord.toUpperCase() + '.' + '</p><p>Press any key to play again!</p>';
             return;
         }
         if (this.remainingGuesses <= 0) {
@@ -161,6 +163,9 @@ var gameObject = {
 
 };
 
+function letterCheck(keyCode) {
+    return (keyCode >= 65 && keyCode <= 90);
+}
 
 
 // run game
@@ -169,7 +174,11 @@ document.onkeyup = function (event) {
         gameObject.resetGame();
         gameObject.gameOver = false;
     } else {
-        gameObject.makeGuess(event.key);
+        if (letterCheck(event.keyCode)) {
+            gameObject.makeGuess(event.key);
+        } else {
+            alert("Please press letter key A-Z to guess a letter.")
+        }
     }
 }
 
