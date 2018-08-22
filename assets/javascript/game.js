@@ -65,6 +65,8 @@ var gameObject = {
     resetGame: function () {
 
         // document.getElementById("gameOver").innerHTML = "<img class='img-fluid' src='assets/images/ali-morshedlou-593422-unsplash.jpg' alt='Italian Restaurant'></div>";
+        var italiaAudio = new Audio('./assets/audio/italia.mp3');
+        italiaAudio.play();
 
         var index = -1;
 
@@ -129,7 +131,7 @@ var gameObject = {
         }
     },
 
-
+    //check if game is over and insert html into game over div
     checkGameOver: function () {
         if (this.correctGuessedLetters.indexOf("_") === -1) {
             this.wins++
@@ -148,6 +150,7 @@ var gameObject = {
         }
     },
 
+    // check if the letter is correct
     makeGuess: function (letter) {
         if (this.remainingGuesses > 0) {
             if (this.incorrectGuessedLetters.indexOf(letter) === -1) {
