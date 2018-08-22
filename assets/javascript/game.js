@@ -61,6 +61,9 @@ var gameObject = {
     gameOver: true,
     lastWordIndex: -1,
     italiaAudio: new Audio('./assets/audio/italia.mp3'),
+    correctAudio: new Audio('./assets/audio/335908__littlerainyseasons__correct.mp3'),
+    wrongAudio: new Audio('./assets/audio/419023__jacco18__acess-denied-buzz.mp3'),
+    winAudio: new Audio('./assets/audio/277022__sandermotions__applause-1.wav'),
 
     // reset the game
     resetGame: function () {
@@ -125,10 +128,12 @@ var gameObject = {
 
         if (tempPositions.length <= 0) {
             this.remainingGuesses--;
+            this.wrongAudio.play();
         } else {
             for (let i = 0; i < tempPositions.length; i++) {
                 this.correctGuessedLetters[tempPositions[i]] = letter;
             }
+            this.correctAudio.play();
         }
     },
 
@@ -137,6 +142,7 @@ var gameObject = {
         if (this.correctGuessedLetters.indexOf("_") === -1) {
             this.wins++
             this.gameOver = true;
+            this.winAudio.play();
             // alert("You won! The word was: " + this.currentWord.toUpperCase());
             document.getElementById("gameOver").innerHTML = /*"<h1>YOU WIN!</h1><br><p>Press any key to play again!</p>"*/
                 '<img class="img-fluid border border-danger" src="assets/images/' + this.currentWord + '.jpg" alt="' + this.currentWord + '">' +
@@ -186,4 +192,4 @@ document.onkeyup = function (event) {
     }
 }
 
-console.log(gameObject.currentWord);
+// console.log(gameObject.currentWord);
